@@ -1,25 +1,22 @@
-// Code SimpleComponent Here
-
 import React, { Component } from 'react'
 
-const defaultMood = "happy"
-
 class SimpleComponent extends Component {
+    constructor(props) {
+        super(props)
 
-    state = {
-        mood: "happy"
+        this.state = {
+            mood: 'happy'
+        }
+    }
+
+    handleClick = () => {
+        const newMood = this.state.mood === 'happy' ? 'sad' : 'happy'
+        this.setState({ mood: newMood })
     }
 
     render() {
-        <div>
-            onClick={this.props.onChange}
-            {this.props.mood || defaultMood}
-        </div>
+        return <div onClick={this.handleClick}>{this.state.mood}</div>
     }
-}
-
-handleClick () => {
-    this.event.target.mood = "sad"
 }
 
 export default SimpleComponent
